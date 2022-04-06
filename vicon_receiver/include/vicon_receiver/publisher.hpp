@@ -2,7 +2,7 @@
 #define PUBLISHER_HPP
 #include <unistd.h>
 #include "rclcpp/rclcpp.hpp"
-#include "vicon_receiver_msgs/msg/position.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
 
 // Struct used to hold segment data to transmit to the Publisher class.
 struct PositionStruct
@@ -13,6 +13,7 @@ struct PositionStruct
     std::string segment_name;
     std::string translation_type;
     unsigned int frame_number;
+    builtin_interfaces::msg::Time stamp;
 
 } typedef PositionStruct;
 
@@ -21,7 +22,7 @@ struct PositionStruct
 class Publisher
 {
 private:
-    rclcpp::Publisher<vicon_receiver_msgs::msg::Position>::SharedPtr position_publisher_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr position_publisher_;
 
 public:
     bool is_ready = false;

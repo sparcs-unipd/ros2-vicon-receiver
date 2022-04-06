@@ -109,6 +109,7 @@ void Communicator::get_frame()
             current_position.subject_name = subject_name;
             current_position.translation_type = "Global";
             current_position.frame_number = frame_number.FrameNumber;
+            current_position.stamp = this->now();
 
             // send position to publisher
             boost::mutex::scoped_try_lock lock(mutex);
