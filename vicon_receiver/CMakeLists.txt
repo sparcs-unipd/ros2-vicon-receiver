@@ -30,7 +30,7 @@ ament_export_dependencies(rosidl_default_runtime)
 
 add_executable(vicon_client src/vicon_receiver/communicator.cpp src/vicon_receiver/publisher.cpp)
 target_link_libraries(vicon_client ViconDataStreamSDK_CPP ${Boost_LIBRARIES})
-ament_target_dependencies(vicon_client "rclcpp" geometry_msgs)
+ament_target_dependencies(vicon_client rclcpp geometry_msgs)
 
 get_default_rmw_implementation(rmw_implementation)
 find_package("${rmw_implementation}" REQUIRED)
